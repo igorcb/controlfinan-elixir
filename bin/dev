@@ -1,0 +1,6 @@
+#!/bin/sh
+# Development: fetch the dependencies, build the CSS, then run the app (restart the container after code changes).
+set -e
+mix deps.get
+tailwindcss -i assets/app.tailwind.css -o priv/static/css/app.css
+exec mix phx.server
